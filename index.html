@@ -1,124 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
-    <title>Minesweeper</title>
+  <meta charset="UTF-8">
+  <title>Minesweeper</title>
+  <link rel="stylesheet" href="styles.css"></link>
+  <script src="main.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <main>
-    <section class="one">
-        <article></article>
-        <article>start/reset</article>
-        <article>timer</article>
-    </section> 
-    <section class="two">
-      <div><i class="fas fa-bomb"></i></div>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+  <section>
+    <div>Flags left: <span id='flags-left'></span></div>
+      <!-- <div>Seconds left: <span id="time-left">500</span></div>
+      <div><button id ="start-button">Start</button></div> -->
+      <div>Timer:<span id="timer">00:00</span></div>
+      <div><button id="toggle">Click to start a game</button></div>
+      <div><button class="refresh-button">Reset</button></div>
+      <div><button class ="rules">Game Rules</button></div>
     </section>
+      <article class ="article"><ul class = "left"><li> 1. Click 'start a game' to start a new game and the timer, double click to close these instructions.
+        <li> 2. Click the grey squares to reveal how many of the surrounding 9 squares have bombs in them, this will be between 0-4, if there is no bombs in the surrounding 9 squares the square will be blank and reveal the blank squares connected to it and these will reveal the blank squares connected to them.</li>
+      
+     
+     
+    </ul>
+    <ul>
+      <li> 3. Place the flags where you suspect there is a bomb with a right click, remove the flag you have placed with another right click on that flag. *do not place the last flag until you are sure as you will not be able to remove it* </li>
+      <li> 4. You will win the game when you have placed all the flags where the bombs are positioned. </li>
+     <li> 5. You will lose the game if you have clicked a bomb square and all the bomb locations will be revealed, click the reset button to play again!</li>
+    
+   
+   
+  </ul></article>
+<main>
+ 
+  <div class="container">
+    <div class="grid"></div>
+    
+  </div>
+  <div class = "result">
+  <div id="result"></div>
+  </div>
 
-
-
-
-  </main>  
+  </main>
 </body>
 </html>
