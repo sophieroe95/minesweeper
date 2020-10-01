@@ -1,38 +1,12 @@
 "use strict";
 
-// insert 10 times bomb random function
-// insert numbers - 3 is 3 adjaccent, 2 if 2 adjacent, 1 if 1, grey if 0
-// if click on bomb, reveal all bombs, end game - you lost pop up, play again option
-// if 3,2,1 or 0, reveal square
-// game ends when all grey space has been identified or all flags in correct position - you win popup
-// //to ask sam how to do function so they are relative to each other?
-// var minutesLabel = document.getElementById("minutes");
-// var secondsLabel = document.getElementById("seconds");
-// var totalSeconds = 0;
-// setInterval(setTime, 1000);
-// function setTime() {
-//   ++totalSeconds;
-//   secondsLabel.innerHTML = pad(totalSeconds % 60);
-//   minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-// }
-// function pad(val) {
-//   var valString = val + "";
-//   if (valString.length < 2) {
-//     return "0" + valString;
-//   } else {
-//     return valString;
-//   }
-// }
-// const placeBombs ()
-// forEach 
-// index id 0-99
-// check neighbours +1,-1,-11,-10,-9
-// class bomb
-// push into array 
 document.addEventListener('DOMContentLoaded', function () {
-  var timeLeftDisplay = document.querySelector('#time-left');
-  var startBtn = document.querySelector('#start-button');
-  timeLeft = 500;
+  var refreshButton = document.querySelector('.refresh-button');
+  var timer = document.getElementById('timer');
+  var toggleBtn = document.getElementById('toggle');
+  var watch = new Stopwatch(timer);
+  var listOfRules = document.querySelector('.article');
+  var showRules = document.querySelector(".rules");
   var grid = document.querySelector('.grid');
   var flagsLeft = document.querySelector('#flags-left');
   var result = document.querySelector('#result');
@@ -40,20 +14,87 @@ document.addEventListener('DOMContentLoaded', function () {
   var bombAmount = 10;
   var flags = 0;
   var squares = [];
-  var isGameOver = false;
+  var isGameOver = false; //reset page button
 
-  function countDown() {
-    setInterval(function () {
-      if (timeLeft <= 0) {
-        clearInterval(timeLeft = 0);
-      }
+  var refreshPage = function refreshPage() {
+    location.reload();
+  };
 
-      timeLeftDisplay.innerHTML = timeLeft;
-      timeLeft -= 1;
-    }, 1000);
+  refreshButton.addEventListener('click', refreshPage); //start game and start/pause clock
+
+  function start() {
+    grid.style.display = 'flex';
+    toggleBtn.textContent = 'Pause';
+    watch.start();
   }
 
-  startBtn.addEventListener('click', countDown); //create Board
+  function stop() {
+    toggleBtn.textContent = 'Start';
+    watch.stop();
+  }
+
+  toggleBtn.addEventListener('click', function () {
+    watch.isOn ? stop() : start();
+  });
+
+  function Stopwatch(elem) {
+    var time = 0;
+    var offset;
+    var interval;
+
+    function update() {
+      if (this.isOn) {
+        time += delta();
+      }
+
+      elem.textContent = timeFormatter(time);
+    }
+
+    function delta() {
+      var now = Date.now();
+      var timePassed = now - offset;
+      offset = now;
+      return timePassed;
+    }
+
+    function timeFormatter(time) {
+      time = new Date(time);
+      var minutes = time.getMinutes().toString();
+      var seconds = time.getSeconds().toString();
+
+      if (minutes.length < 2) {
+        minutes = '0' + minutes;
+      }
+
+      while (seconds.length < 2) {
+        seconds = '0' + seconds;
+      }
+
+      return minutes + ' : ' + seconds;
+    }
+
+    this.start = function () {
+      interval = setInterval(update.bind(this), 10);
+      offset = Date.now();
+      this.isOn = true;
+    };
+
+    this.stop = function () {
+      clearInterval(interval);
+      interval = null;
+      this.isOn = false;
+    };
+
+    this.isOn = false;
+  } // show/hide rules
+
+
+  showRules.addEventListener("click", function showText() {
+    listOfRules.style.display = 'flex';
+  });
+  showRules.addEventListener("dblclick", function hideText() {
+    listOfRules.style.display = 'none';
+  }); //create game board
 
   function createBoard() {
     flagsLeft.innerHTML = bombAmount; //get shuffled game array with random bombs
@@ -93,15 +134,15 @@ document.addEventListener('DOMContentLoaded', function () {
       var isRightEdge = _i % width === width - 1;
 
       if (squares[_i].classList.contains('valid')) {
-        // west, north-east, north, north-west, east, south-west,south-east, south
+        // west, north-east, north, north-west, east, south-west, south-east, south
         if (_i > 0 && !isLeftEdge && squares[_i - 1].classList.contains('bomb')) total++;
         if (_i > 9 && !isRightEdge && squares[_i + 1 - width].classList.contains('bomb')) total++;
-        if (_i > 10 && squares[_i - width].classList.contains('bomb')) total++;
-        if (_i > 11 && !isLeftEdge && squares[_i - 1 - width].classList.contains('bomb')) total++;
-        if (_i < 98 && !isRightEdge && squares[_i + 1].classList.contains('bomb')) total++;
+        if (_i > 9 && squares[_i - width].classList.contains('bomb')) total++;
+        if (_i > 10 && !isLeftEdge && squares[_i - 1 - width].classList.contains('bomb')) total++;
+        if (_i < 99 && !isRightEdge && squares[_i + 1].classList.contains('bomb')) total++;
         if (_i < 90 && !isLeftEdge && squares[_i - 1 + width].classList.contains('bomb')) total++;
-        if (_i < 88 && !isRightEdge && squares[_i + 1 + width].classList.contains('bomb')) total++;
-        if (_i < 89 && squares[_i + width].classList.contains('bomb')) total++;
+        if (_i < 89 && !isRightEdge && squares[_i + 1 + width].classList.contains('bomb')) total++;
+        if (_i < 90 && squares[_i + width].classList.contains('bomb')) total++;
 
         squares[_i].setAttribute('data', total);
       }
@@ -162,38 +203,37 @@ document.addEventListener('DOMContentLoaded', function () {
     var isRightEdge = currentId % width === width - 1;
     setTimeout(function () {
       if (currentId > 0 && !isLeftEdge) {
-        var newId = squares[parseInt(currentId) - 1].id; //const newId = parseInt(currentId) - 1   ....refactor
-
+        var newId = squares[parseInt(currentId) - 1].id;
         var newSquare = document.getElementById(newId);
         click(newSquare);
       }
 
       if (currentId > 9 && !isRightEdge) {
-        var _newId = squares[parseInt(currentId) + 1 - width].id; //const newId = parseInt(currentId) +1 -width   ....refactor
+        var _newId = squares[parseInt(currentId) + 1 - width].id;
 
         var _newSquare = document.getElementById(_newId);
 
         click(_newSquare);
       }
 
-      if (currentId > 10) {
-        var _newId2 = squares[parseInt(currentId - width)].id; //const newId = parseInt(currentId) -width   ....refactor
+      if (currentId > 9) {
+        var _newId2 = squares[parseInt(currentId - width)].id;
 
         var _newSquare2 = document.getElementById(_newId2);
 
         click(_newSquare2);
       }
 
-      if (currentId > 11 && !isLeftEdge) {
-        var _newId3 = squares[parseInt(currentId) - 1 - width].id; //const newId = parseInt(currentId) -1 -width   ....refactor
+      if (currentId > 10 && !isLeftEdge) {
+        var _newId3 = squares[parseInt(currentId) - 1 - width].id;
 
         var _newSquare3 = document.getElementById(_newId3);
 
         click(_newSquare3);
       }
 
-      if (currentId < 98 && !isRightEdge) {
-        var _newId4 = squares[parseInt(currentId) + 1].id; //const newId = parseInt(currentId) +1   ....refactor
+      if (currentId < 99 && !isRightEdge) {
+        var _newId4 = squares[parseInt(currentId) + 1].id;
 
         var _newSquare4 = document.getElementById(_newId4);
 
@@ -201,23 +241,23 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (currentId < 90 && !isLeftEdge) {
-        var _newId5 = squares[parseInt(currentId) - 1 + width].id; //const newId = parseInt(currentId) -1 +width   ....refactor
+        var _newId5 = squares[parseInt(currentId) - 1 + width].id;
 
         var _newSquare5 = document.getElementById(_newId5);
 
         click(_newSquare5);
       }
 
-      if (currentId < 88 && !isRightEdge) {
-        var _newId6 = squares[parseInt(currentId) + 1 + width].id; //const newId = parseInt(currentId) +1 +width   ....refactor
+      if (currentId < 89 && !isRightEdge) {
+        var _newId6 = squares[parseInt(currentId) + 1 + width].id;
 
         var _newSquare6 = document.getElementById(_newId6);
 
         click(_newSquare6);
       }
 
-      if (currentId < 89) {
-        var _newId7 = squares[parseInt(currentId) + width].id; //const newId = parseInt(currentId) +width   ....refactor
+      if (currentId < 90) {
+        var _newId7 = squares[parseInt(currentId) + width].id;
 
         var _newSquare7 = document.getElementById(_newId7);
 

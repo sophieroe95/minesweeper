@@ -1,17 +1,16 @@
-*{
+* {
   padding: 0;
   border: 0;
   display: border-box;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
-
 
 body {
   background-color: black;
   color: white;
   width: auto;
 }
-section {
+body header {
   border: 2px black solid;
   height: 10vh;
   width: 100%;
@@ -19,11 +18,59 @@ section {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   font-size: 22px;
 }
-
-main {
+body button {
+  font-size: 20px;
+  width: 100px;
+}
+body ul {
+  font-size: 14px !important;
+  border: 20px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  flex-direction: column;
+  height: auto;
+  width: 90%;
+  display: flex;
+  text-align: center;
+  list-style: none;
+}
+body li {
+  width: 50%;
+  margin: 2px;
+}
+body article {
+  border: 2px black solid;
+  height: 10vh;
+  width: 100%;
+  display: none;
+  justify-content: flex-start;
+  align-items: space-between;
+  font-family: "Roboto Mono", monospace;
+  font-size: 22px;
+}
+body div {
+  align-content: center;
+  justify-content: center;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  width: 300px;
+}
+body .left {
+  font-size: 14px !important;
+  border: 20px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  height: auto;
+  width: 90%;
+  display: flex;
+  text-align: center;
+  list-style: none;
+}
+body main {
   height: 90vh;
   width: 100%;
   display: flex;
@@ -31,141 +78,66 @@ main {
   align-items: center;
   justify-content: center;
 }
-
-.container {
-    width: 100%;
-    height: auto;
-    align-content: center;
-  }
-  
- .result{
+body main .grid-container {
+  width: 100%;
+  height: auto;
+  align-content: center;
+}
+body main .grid-container .grid {
+  height: 400px;
+  width: 400px;
+  display: none;
+  flex-wrap: wrap;
+  background-color: grey;
+  margin-top: 20px;
+  border: 10px solid #bdbdbd;
+  margin-bottom: 10px;
+}
+body main .grid-container .valid {
+  height: 40px;
+  width: 40px;
+  border: 5px solid;
+  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+body main .grid-container .checked {
+  height: 40px;
+  width: 40px;
+  border: 2px solid;
+  background-color: #bdbcb8;
+  border-color: #9c998d;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+body main .grid-container .bomb {
+  height: 40px;
+  width: 40px;
+  border: 5px solid;
+  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
+body main .grid-container .one {
+  color: #e76346;
+}
+body main .grid-container .two {
+  color: #4199d3;
+}
+body main .grid-container .three {
+  color: #1aaf1d;
+}
+body main .grid-container .four {
+  color: #bb41d3;
+}
+body main .result-container {
   width: 100%;
   align-content: center;
- }
-
-  .grid {
-    height: 400px;
-    width: 400px;
-    display: none;
-    flex-wrap: wrap;
-    background-color: grey;
-    margin-top: 20px;
-    border: 10px solid rgb(189, 189, 189);
-    margin-bottom: 10px;
-  }
-  
-  div {
-    /* font-size: 25px; */
-    align-content: center;
-    justify-content: center;
-    font-family: 'Roboto Mono', monospace;
-    display: flex;
-    width: 300px;
-
-  
-  }
-  .valid {
-    height: 40px;
-    width: 40px;
-    border: 5px solid;
-    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
-    box-sizing: border-box;
-  }
-  
-  .checked {
-    height: 40px;
-    width: 40px;
-    border: 2px solid;
-    background-color: #bdbcb8;
-    border-color: #9c998d;
-    box-sizing: border-box;
-  }
-  
-  .bomb {
-    height: 40px;
-    width: 40px;
-    border: 5px solid;
-    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
-    box-sizing: border-box;
-  }
-  
-  .one {
-    color: #e76346;
-  }
-  
-  .two {
-    color: #4199d3;
-  }
-  
-  .three {
-    color: #57da59;
-  }
-  
-  .four{
-    color: #bb41d3;
-  }
-  
-  #result {
-    margin-top: 5px;
-    color: #e76346;
-    align-content: center;
-    justify-content: center;
-  }
-
-  button {
-    font-size: 20px;
-    width: 100px;
-  }
-
-  #startbtn {
-    position: absolute;
-    top: 400px;
-    left: 250px;
-    width: 200px;
-    height: 50px;
-    font-size: 20px;
-  }
-
-
-  ul {
-    font-size: 14px !important;
-    border: 20px;
-    justify-content: flex-start;
-    align-items: flex-end;
-    flex-direction: column;
-    height: auto;
-    width: 90%;
-    display: flex;
-    text-align: center;
-    list-style: none;
-  }
-
-  li{
-    width: 50%;
-    margin: 2px;
-  }
-
-  article {
-    border: 2px black solid;
-    height: 10vh;
-    width: 100%;
-    display: none;
-    justify-content: flex-start;
-    align-items: space-between;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 22px;
-  }
-
-  .left{
-    font-size: 14px !important;
-    border: 20px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    height: auto;
-    width: 90%;
-    display: flex;
-    text-align: center;
-    list-style: none;
-  }
-  
+  justify-content: center;
+  margin-top: 5px;
+  color: #e76346;
+}

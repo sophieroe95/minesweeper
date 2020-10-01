@@ -1,0 +1,165 @@
+* {
+    padding: 0;
+    border: 0;
+    display: border-box;
+    font-family: "Roboto Mono", monospace;
+  }
+  
+  body {
+    background-color: black;
+    color: white;
+    width: auto;
+  
+  header {
+    border: 2px black solid;
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto Mono", monospace;
+    font-size: 22px;
+  }
+
+  button {
+    font-size: 20px;
+    width: 100px;
+  }
+  ul {
+    font-size: 14px !important;
+    border: 20px;
+    justify-content: flex-start;
+    align-items: flex-end;
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    display: flex;
+    text-align: center;
+    list-style: none;
+  }
+  
+  li {
+    width: 50%;
+    margin: 2px;
+  }
+  
+  article {
+    border: 2px black solid;
+    height: 10vh;
+    width: 100%;
+    display: none;
+    justify-content: flex-start;
+    align-items: space-between;
+    font-family: "Roboto Mono", monospace;
+    font-size: 22px;
+  }
+  div {
+    align-content: center;
+    justify-content: center;
+    font-family: "Roboto Mono", monospace;
+    display: flex;
+    width: 300px;
+  }
+  .left {
+    font-size: 14px !important;
+    border: 20px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    height: auto;
+    width: 90%;
+    display: flex;
+    text-align: center;
+    list-style: none;
+  }
+  main {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  
+  .grid-container {
+    width: 100%;
+    height: auto;
+    align-content: center;
+  
+  
+  
+  
+  .grid {
+    height: 400px;
+    width: 400px;
+    display: none;
+    flex-wrap: wrap;
+    background-color: grey;
+    margin-top: 20px;
+    border: 10px solid #bdbdbd;
+    margin-bottom: 10px;
+  }
+  
+ 
+  
+  .valid {
+    height: 40px;
+    width: 40px;
+    border: 5px solid;
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+  
+  .checked {
+    height: 40px;
+    width: 40px;
+    border: 2px solid;
+    background-color: #bdbcb8;
+    border-color: #9c998d;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .bomb {
+    height: 40px;
+    width: 40px;
+    border: 5px solid;
+    border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .one {
+    color: #e76346;
+  }
+  
+  .two {
+    color: #4199d3;
+  }
+  
+  .three {
+    color: #1aaf1d;
+  }
+  
+  .four {
+    color: #bb41d3;
+  }
+}
+
+
+  .result-container {
+    width: 100%;
+    align-content: center;
+    justify-content: center;
+    margin-top: 5px;
+    color: #e76346;
+  }
+    
+  }
+  }
