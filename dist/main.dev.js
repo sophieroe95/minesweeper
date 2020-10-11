@@ -16,11 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var squares = [];
   var isGameOver = false; //reset page button
 
-  var refreshPage = function refreshPage() {
+  refreshButton.addEventListener('click', function () {
     location.reload();
-  };
-
-  refreshButton.addEventListener('click', refreshPage); //start game and start/pause clock
+  }); //start game and start/pause clock
 
   function start() {
     grid.style.display = 'flex';
@@ -154,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function addFlag(square) {
     if (isGameOver) return;
 
-    if (!square.classList.contains('checked') && flags < bombAmount) {
+    if (!square.classList.contains('checked') && flags <= bombAmount) {
       if (!square.classList.contains('flag')) {
         square.classList.add('flag');
         square.innerHTML = ' 🚩';
@@ -200,7 +198,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function checkSquare(square, currentId) {
     var isLeftEdge = currentId % width === 0;
-    var isRightEdge = currentId % width === width - 1;
+    var isRightEdge = currentId % width === width - 1; // west, north-east, north, north-west, east, south-west, south-east, south
+
     setTimeout(function () {
       if (currentId > 0 && !isLeftEdge) {
         var newId = squares[parseInt(currentId) - 1].id;
@@ -296,4 +295,4 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     }
   }
-});
+}); // code adapted from https://github.com/kubowania/minesweeper and https://gist.github.com/anonymous/fe5cdd7e9cd14fea796b27d19f8d1cb6

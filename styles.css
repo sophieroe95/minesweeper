@@ -103,21 +103,21 @@ body main .grid-container .valid {
   justify-content: center;
   font-size: 22px;
 }
+body main .grid-container .bomb {
+  height: 40px;
+  width: 40px;
+  border: 5px solid;
+  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
 body main .grid-container .checked {
   height: 40px;
   width: 40px;
   border: 2px solid;
   background-color: #bdbcb8;
   border-color: #9c998d;
-  box-sizing: border-box;
-  align-items: center;
-  justify-content: center;
-}
-body main .grid-container .bomb {
-  height: 40px;
-  width: 40px;
-  border: 5px solid;
-  border-color: #f5f3eb #bab7a9 #bab7a9 #fff9db;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
