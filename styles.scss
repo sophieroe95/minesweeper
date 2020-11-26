@@ -168,6 +168,7 @@ body {
 
     .result-container {
       width: 100%;
+      display: flex;
       align-content: center;
       justify-content: center;
       margin-top: 5px;
@@ -210,6 +211,37 @@ body {
 
     main {
       height: 30vh;
+  
+      .grid-container {
+        padding-top: 10px;
+  
+        .grid {
+          height: 300px;
+          width: 300px;
+          margin-top: 15px;
+          border: 7px solid #bdbdbd;
+          margin-bottom: 7px;
+        }
+  
+        .valid {
+          height: 30px;
+          width: 30px;
+          border: 3px solid;
+          font-size: 14px;
+        }
+  
+        .bomb {
+          height: 30px;
+          width: 30px;
+          border: 3px solid;
+        }
+  
+        .checked {
+          height: 30px;
+          width: 30px;
+          border: 2px solid;
+        }
+      }
     }
   }
 

@@ -149,6 +149,7 @@ body main .grid-container .four {
 }
 body main .result-container {
   width: 100%;
+  display: flex;
   align-content: center;
   justify-content: center;
   margin-top: 5px;
@@ -184,5 +185,31 @@ body main .result-container {
   }
   body main {
     height: 30vh;
+  }
+  body main .grid-container {
+    padding-top: 10px;
+  }
+  body main .grid-container .grid {
+    height: 300px;
+    width: 300px;
+    margin-top: 15px;
+    border: 7px solid #bdbdbd;
+    margin-bottom: 7px;
+  }
+  body main .grid-container .valid {
+    height: 30px;
+    width: 30px;
+    border: 3px solid;
+    font-size: 14px;
+  }
+  body main .grid-container .bomb {
+    height: 30px;
+    width: 30px;
+    border: 3px solid;
+  }
+  body main .grid-container .checked {
+    height: 30px;
+    width: 30px;
+    border: 2px solid;
   }
 }
