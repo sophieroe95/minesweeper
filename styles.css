@@ -21,7 +21,14 @@ body header {
   font-family: "Roboto Mono", monospace;
   font-size: 22px;
 }
-body header button {
+body header section {
+  align-content: center;
+  justify-content: center;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  width: 300px;
+}
+body header section button {
   font-size: 20px;
   width: 100px;
   margin: 0px;
@@ -64,13 +71,6 @@ body article ul .left li {
   width: 40%;
   margin: 2px;
 }
-body div {
-  align-content: center;
-  justify-content: center;
-  font-family: "Roboto Mono", monospace;
-  display: flex;
-  width: 300px;
-}
 body main {
   height: 90vh;
   width: 100%;
@@ -80,10 +80,20 @@ body main {
   justify-content: center;
   padding-top: 20px;
 }
+body main div {
+  align-content: center;
+  justify-content: center;
+  font-family: "Roboto Mono", monospace;
+  display: flex;
+  width: 300px;
+}
 body main .grid-container {
   width: 100%;
   height: auto;
+  display: flex;
   align-content: center;
+  justify-content: center;
+  align-items: center;
   padding-top: 60px;
 }
 body main .grid-container .grid {
@@ -145,15 +155,34 @@ body main .result-container {
   color: #e76346;
 }
 
-@media screen and (max-width: 720px) {
-  body header {
-    display: flex;
-    flex-direction: column;
-    height: auto;
+@media screen and (max-width: 1050px) {
+  body {
+    background-color: black;
+    color: white;
+    width: auto;
   }
-
-  button {
-    width: 40px;
-    font-size: 10px;
+  body header {
+    font-size: 22px;
+    flex-direction: column;
+  }
+  body header section {
+    align-content: center;
+    justify-content: center;
+    font-family: "Roboto Mono", monospace;
+    display: flex;
+    width: 250px;
+    padding: 20px 20px;
+  }
+  body header section span {
+    width: 100px;
+    text-align: center;
+  }
+  body header section button {
+    font-size: 22px;
+    width: 200px;
+    margin: 0px;
+  }
+  body main {
+    height: 30vh;
   }
 }

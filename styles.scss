@@ -21,10 +21,18 @@ body {
     font-family: "Roboto Mono", monospace;
     font-size: 22px;
 
-    button {
-      font-size: 20px;
-      width: 100px;
-      margin: 0px;
+    section {
+      align-content: center;
+      justify-content: center;
+      font-family: "Roboto Mono", monospace;
+      display: flex;
+      width: 300px;
+
+      button {
+        font-size: 20px;
+        width: 100px;
+        margin: 0px;
+      }
     }
   }
 
@@ -70,13 +78,7 @@ body {
     }
   }
 
-  div {
-    align-content: center;
-    justify-content: center;
-    font-family: "Roboto Mono", monospace;
-    display: flex;
-    width: 300px;
-  }
+ 
 
   main {
     height: 90vh;
@@ -85,12 +87,23 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 20px;;
+    padding-top: 20px;
+
+    div {
+      align-content: center;
+      justify-content: center;
+      font-family: "Roboto Mono", monospace;
+      display: flex;
+      width: 300px;
+    }
 
     .grid-container {
       width: 100%;
       height: auto;
+      display: flex;
       align-content: center;
+      justify-content: center;
+      align-items: center;
       padding-top: 60px;
 
       .grid {
@@ -163,16 +176,42 @@ body {
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1050px) {
 
-body header {
-   display: flex;
-   flex-direction: column;
-   height: auto;
+  body {
+    background-color: black;
+    color: white;
+    width: auto;
+  
+    header {
+      font-size: 22px;
+      flex-direction: column;
+  
+      section {
+        align-content: center;
+        justify-content: center;
+        font-family: "Roboto Mono", monospace;
+        display: flex;
+        width: 250px;
+        padding: 20px 20px;
+
+        span{
+          width: 100px;
+          text-align: center;
+        }
+  
+        button {
+          font-size: 22px;
+          width: 200px;
+          margin: 0px;
+        }
+      }
+    }
+
+    main {
+      height: 30vh;
+    }
   }
 
-  button {
-    width: 40px;
-    font-size: 10px;
-  }
+  
 }

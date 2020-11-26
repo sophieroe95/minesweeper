@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function () {
         seconds = '0' + seconds;
       }
 
-      return minutes + ' : ' + seconds;
+      return ' ' + minutes + ':' + seconds;
     }
 
     this.start = function () {
