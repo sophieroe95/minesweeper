@@ -1,5 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-
   const refreshButton = document.querySelector('.refresh-button')
   let timer = document.getElementById('timer')
   let toggleBtn = document.getElementById('toggle')
@@ -273,6 +271,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
-})
 
 // code adapted from https://github.com/kubowania/minesweeper and https://gist.github.com/anonymous/fe5cdd7e9cd14fea796b27d19f8d1cb6
